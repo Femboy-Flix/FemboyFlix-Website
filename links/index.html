@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FemboyFlix</title>
+    <style>
+        :root {
+            --bg-color: pink;
+            --text-color: rgb(179, 0, 255);
+            --header-bg: rgb(253, 177, 190);
+            --menu-bg: white;
+            --menu-hover: pink;
+            --button-bg: darkviolet;
+            --button-hover: #b300b3;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #333;
+            --text-color: rgb(179, 0, 255);
+            --header-bg: #444;
+            --menu-bg: #3d3d3d;
+            --menu-hover: #555;
+            --button-bg: darkviolet;
+            --button-hover: #888;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .banner {
+            width: 100%;
+            height: 300px;
+            background-image: url('./data/banner.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2.5em;
+            text-shadow: 1px 1px 2px black;
+            position: relative; /* Ermöglicht das Platzieren von Elementen wie dem Button */
+        }
+
+        h1 {
+            position: sticky;
+            top: 0;
+            margin: 0;
+            padding: 10px;
+            font-size: 1.5em;
+            background-color: var(--header-bg);
+            color: var(--text-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.8em;
+            
+        }
+
+        .menu-icon {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .menu-dropdown {
+            display: none;
+            position: absolute;
+            right: 10px;
+            top: 60px;
+            background-color: var(--menu-bg);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+        }
+
+        .menu-dropdown a {
+            display: block;
+            padding: 10px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.6em;
+            border-radius: 10px;
+        }
+
+        .menu-dropdown a:hover {
+            background-color: var(--menu-hover);
+        }
+
+        .link-item {
+            display: flex;
+            align-items: left;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: var(--menu-bg);
+            flex-direction: column;
+        }
+
+        .link-item img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .link-item button {
+            background-color: var(--button-bg);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            text-align: left;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .link-item button:hover {
+            background-color: var(--button-hover);
+        }
+
+        .dark-mode-toggle {
+         position: absolute; /* Absolute Positionierung innerhalb des Banners */
+        top: 10px; /* Abstand von der oberen Kante des Banners */
+         right: 10px; /* Abstand von der rechten Kante des Banners */
+         padding: 10px 20px; /* Innenabstand des Buttons */
+         background-color: var(--button-bg); /* Hintergrundfarbe */
+         color: white; /* Schriftfarbe */
+         border: none; /* Keine Rahmenlinie */
+         border-radius: 10px; /* Abgerundete Ecken */
+         cursor: pointer; /* Zeiger als Mauszeiger */
+         font-size: 1em; /* Schriftgröße */
+         z-index: 10; /* Über anderen Elementen anzeigen */
+        }
+    </style>
+</head>
+<body>
+    <header class="banner">
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()"></button>
+</header>
+    </header>
+
+    <h1>
+        Hii Boys My outfit list
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+        <div class="menu-dropdown" id="menuDropdown">
+            <a href="/links/index.html">My outfit</a>
+            <a href="../index.html">Socialmedia</a>
+            <a href="/com/index.html">Comunity</a>
+        </div>
+    </h1>
+
+    <div id="linkList"></div>
+
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <script>
+        async function loadLinks() {
+            try {
+                const response = await fetch('./data/links.json');
+                const links = await response.json();
+                renderLinks(links);
+            } catch (error) {
+                console.error("Fehler beim Laden der Links:", error);
+            }
+        }
+
+        function renderLinks(links) {
+            const linkList = document.getElementById("linkList");
+            linkList.innerHTML = "";
+
+            links.forEach(link => {
+                const linkItem = document.createElement("div");
+                linkItem.className = "link-item";
+
+                const img = document.createElement("img");
+                img.src = `./data/${link.image}`;
+                img.alt = link.description;
+
+                const button = document.createElement("button");
+                button.textContent = "To product";
+                button.onclick = () => window.open(link.url, "_blank");
+
+                const description = document.createElement("div");
+                description.textContent = link.description;
+
+                linkItem.appendChild(img);
+                linkItem.appendChild(button);
+                linkItem.appendChild(description);
+
+                linkList.appendChild(linkItem);
+            });
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById("menuDropdown");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+
+        function toggleDarkMode() {
+            const theme = document.documentElement.getAttribute("data-theme");
+            document.documentElement.setAttribute("data-theme", theme === "dark" ? "light" : "dark");
+            localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
+        }
+
+        // Set theme based on system preference or saved setting
+        const savedTheme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", savedTheme);
+
+        document.addEventListener("click", (event) => {
+            const menu = document.getElementById("menuDropdown");
+            if (!event.target.closest(".menu-icon") && !event.target.closest("#menuDropdown")) {
+                menu.style.display = "none";
+            }
+        });
+
+        loadLinks();
+    </script>
+</body>
+</html>

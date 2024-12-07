@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FemboyFlix</title>
+    <style>
+        /* Grunddesign */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            transition: background-color 0.3s, color 0.3s;
+            color: rgb(179, 0, 255);
+        }
+        h1 {
+            color: inherit;
+            position: absolute;
+            top: 400px;
+        }
+        /* Dunkelmodus-Stile */
+        body.dark-mode {
+            background-color: #333;
+            color: rgb(179, 0, 255);
+        }
+        /* Schalter-Design */
+        #darkModeToggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background-color: #444;
+            color: darkviolet;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        #darkModeToggle.dark-mode {
+            background-color: pink;
+            color: darkviolet;
+        }
+        /* Media Query für bevorzugten Farbschema */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #333;
+                color: darkviolet;
+            }
+            #darkModeToggle {
+                background-color: darkviolet;
+                color: #333;
+            }
+        }
+        h2 {
+            color: inherit;
+            font-size: 0.7em;
+            position: absolute;
+            top: 500px;
+            color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <button id="darkModeToggle">Dark Mode</button>
+    <h1>In development ><
+        <a href="../dev" style="color: rgb(179, 0, 255);">preview</a>
+    </h1>
+    <h2>
+        If you visit this website, you agree that your IP address will be passed on to third parties
+    </h2>
+    
+
+    <script>
+        // Element-Referenz
+        const toggleButton = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        // Funktion zur initialen Einstellung des Modus basierend auf den gespeicherten Präferenzen
+        function setInitialMode() {
+            const isDarkMode = localStorage.getItem("dark-mode") === "true";
+            if (isDarkMode) {
+                body.classList.add("dark-mode");
+                toggleButton.classList.add("dark-mode");
+                toggleButton.textContent = "Light Mode";
+            } else {
+                const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                if (prefersDarkScheme) {
+                    body.classList.add("dark-mode");
+                    toggleButton.classList.add("dark-mode");
+                    toggleButton.textContent = "Light Mode";
+                } else {
+                    toggleButton.textContent = "Dark Mode";
+                }
+            }
+        }
+
+        // Event-Listener für den Dunkelmodus
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            toggleButton.classList.toggle("dark-mode");
+
+            // Text des Buttons anpassen
+            if (body.classList.contains("dark-mode")) {
+                toggleButton.textContent = "Light Mode";
+                localStorage.setItem("dark-mode", "true");
+            } else {
+                toggleButton.textContent = "Dark Mode";
+                localStorage.setItem("dark-mode", "false");
+            }
+        });
+
+        // Initialen Modus setzen
+        setInitialMode();
+    </script>
+</body>
+</html>
