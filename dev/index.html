@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FemboyFlix</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap -->
+
+
+    <style>
+        /*banner */
+        /*banner */
+        body {
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        .banner {
+            position: relative;
+            background: url('/data/banner.jpg') no-repeat center center / cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+            z-index: 1;
+        }
+
+        nav {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            display: flex;
+            gap: 2px; /* Abstand zwischen den Buttons */
+            padding-right: 0px; /* Abstand zum rechten Rand */
+        }
+
+
+        .nav-link {
+           
+            display: inline-flex; /* Icon und Text nebeneinander */
+            align-items: center; /* Vertikal zentriert */
+            color: white; /* Textfarbe */
+            font-size: 15px; /* Schriftgröße */
+            margin-right: 2px; /* Abstand zwischen den Buttons */
+            padding: 5px 5px; /* Innenabstand */
+            border: 2px solid white; /* Weiße Umrahmung */
+            border-radius: 5px; /* Runde Ecken */
+            text-decoration: none; /* Unterstreichung entfernen */
+            transition: all 0.3s ease; /* Animation für Hover */
+        }
+
+        .nav-link i {
+            margin-right: 5px; /* Abstand zwischen Icon und Text */
+        }
+
+        .nav-link:hover {
+            background-color: white; /* Hintergrundfarbe bei Hover */
+            color: black; /* Textfarbe bei Hover */
+        }
+
+        /*banner */
+        /*banner */
+       
+
+        .content {
+            color: rgb(255, 255, 255);
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .txt {
+            text-align: flex;
+            border-radius: 8px;
+            padding: 15px;
+            color: rgb(255, 255, 255);
+            max-width: 300px;
+        }  
+
+
+
+
+
+        /*links */
+        /*links */
+        
+        .link-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+
+        .link-item {
+            flex: 1 1 calc(50% - 20px); /* Jede Kachel nimmt mindestens 50% minus dem Abstand ein */
+            max-width: 150px; /* Begrenzung für größere Bildschirme */
+            text-align: center;
+            background-color: var(--menu-bg);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .link-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 10px; /* Zentriert das Bild und fügt Abstand darunter hinzu */
+            display: block;
+        }
+
+        .link-item a:hover {
+            background-color: var(--button-hover);
+        }
+
+        .linkone {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: var(--button-bg);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        /*links */
+        /*links */
+
+        /*abaoutme  */
+        /*abaoutme  */
+        .gradient-box {
+            background: linear-gradient(45deg, #554df9, #d400ff); /* Farbverlauf */
+            color: #fff; /* Weißer Text */
+            padding: 20px; /* Innenabstand */
+            border-radius: 10px; /* Runde Ecken */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Schatten */
+            display: flex; /* Flexbox für Layout */
+            align-items: center; /* Inhalte vertikal zentrieren */
+            text-align: left; /* Text linksbündig */
+            width: 85%; /* Maximalbreite der Box */
+            margin: 20px auto; /* Zentriert auf der Seite */
+        }
+
+        .gradient-box img {
+            width: 100px; /* Bildbreite */
+            height: 100px; /* Bildhöhe */
+            object-fit: cover; /* Bildfüllung */
+            border-radius: 50%; /* Runde Bildform */
+            margin-right: 20px; /* Abstand zum Text */
+        }
+
+        .gradient-box .text-content {
+            flex: 1; /* Text nimmt verbleibenden Platz ein */
+            display: flex; /* Innerhalb des Textbereichs */
+            flex-direction: column; /* Text vertikal anordnen */
+            justify-content: center; /* Text vertikal zentrieren */
+        }
+
+        .gradient-box h2 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .gradient-box p {
+            font-size: 1rem;
+            margin: 5px 0 0;
+            line-height: 1.5;
+        }
+        /*abaoutme  */
+        /*abaoutme  */
+
+
+
+
+
+        /*footer */
+        /*footer */
+        .footer {
+            background-color: #000;
+            height: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0;
+            margin: 0;
+        }
+        .footer::before {
+            content: '';
+            width: 90%;
+            border-top: 2px solid #fff;
+            display: block;
+        }
+        .footer-text {
+            background-color: #000;
+            padding: 10px 0;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            margin: 0;
+        }
+        /*footer */
+        /*footer */
+    </style>
+</head>
+
+<body>
+    <!-- Banner -->
+    <div class="banner">
+        <nav style="position: absolute; top: 10px; right: 20px;">
+            <a href="/links/index.html" class="nav-link">
+                <i class="fa-solid fa-shirt"></i>
+                Outfit
+            </a>
+            <a href="../index.html" class="nav-link">
+                <i class="fa-solid fa-thumbs-up"></i>
+                Socialmedia
+            </a>
+            <!--<a href="/com/index.html" class="nav-link">
+                <i class="fa-solid fa-users"></i>
+                Community
+            </a> -->
+            <a href="/block/index.html" class="nav-link">
+                <i class="bi bi-chat-left-text-fill"></i>
+                Blog
+            </a>
+        </nav>
+        <div class="content">
+            <h1 class="display-4"  style="font-size: 85px;">Welcome</h1>
+            <p class="lead">Oh look a cute boy!</p>
+        </div>
+    </div>
+    <!-- Banner -->
+    <!-- Banner -->
+
+
+
+    <!-- link -->
+    <!-- link -->
+    <div class="link-list">
+
+        <a href="https://x.com/FemboyFlix" class="link-item" target="_blank">
+           
+            <img src="./data/twitter-icon.png" alt="Reddit">
+            <i class="bi bi-twitter-x"></i><span> Twitter </span>
+           
+        </a>
+
+        <a href="https://www.instagram.com/femboyflix/profilecard/?igsh=MWt3a2hwYzhoYTZneQ==" class="link-item" target="_blank">
+           
+            <img src="./data/instagram-icon.png" alt="Reddit">
+            <i class="bi bi-instagram"></i><span> Instagram </span>
+           
+        </a>
+
+        <a href="https://youtube.com/@femboyflix?si=huBSAKolD-52y35w" class="link-item" target="_blank">
+           
+            <img src="./data/youtube-icon.png" alt="Reddit">
+            <i class="bi bi-youtube"></i><span> YouTube </span>
+           
+        </a>
+
+        <a href="https://www.tiktok.com/@femboyflix?_t=8rfsXVwgSSl&_r=1" class="link-item" target="_blank">
+           
+            <img src="./data/tiktok-icon.png" alt="Reddit">
+            <i class="bi bi-tiktok"></i><span> TikTok </span>
+           
+        </a>
+
+        <a href="https://www.reddit.com/user/dawid-ER-hard/?" class="link-item" target="_blank">
+           
+            <img src="./data/reddit.png" alt="Reddit">
+            <i class="bi bi-reddit"></i><span> Reddit </span>
+           
+        </a>
+
+        <a href="https://www.amazon.de/registries/gl/guest-view/6ABJJX18SH21" class="link-item" target="_blank">
+           
+            <img src="./data/amazon.png" alt="Reddit">
+            <i class="bi bi-amazon"></i><span> wishlist </span>
+           
+        </a>
+
+    </div>
+    <!-- link -->
+    <!-- link -->
+
+
+      
+
+    <!-- abme -->
+    <!-- ambme -->
+    <div class="gradient-box">
+        <img src="./data/abme.png" alt="Beispielbild">
+        <div class="text-content">
+            <h2>About Me</h2>
+            <p>Hello its me just a cute boy om my way through my life. I try to have fun with making vidios. I wona ty so make the femboy community even bigger UwU. I hope my vidios make your day even better </p>
+        </div>
+    </div>
+    <!-- abme -->
+    <!-- ambme -->
+
+    <div class="content">
+        <h1>Supported Discordservers</h1>
+    </div>
+    <div class="link-list">
+        <a href="https://disboard.org/de/server/813849176999854102" class="link-item" target="_blank">
+            <img src="./data/femboi.png" alt="Reddit"><i class="bi bi-discord"></i>
+            <span> Femboi Gang</span>
+        </a>
+        <div class="txt">
+            <p>A Discord server for german and english femboys in germany astria and switzerland. For 
+            (just chatting, posting thigh pics/nomal pics and talk about art,tech,anime,sports,makeup and musik)</p>
+        </div>
+    </div>
+
+
+  
+    <!-- Footer -->
+    <!-- Footer -->
+    <div class="footer"></div>
+    <footer class="footer-text">
+        <p>Oh look you cute Boy</p>
+        <i class="bi bi-github"></i>
+        <a href="https://github.com/Femboy-Flix/FemboyFlix-Website" style="color: rgb(255, 255, 255);">GitHub</a><br>
+        <i class="bi bi-shield-check"></i>
+        <a href="/legal/index.html" style="color: rgb(255, 255, 255);">Impressum/Privacy Policy</a>
+    </footer>
+
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

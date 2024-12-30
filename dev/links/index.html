@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FemboyFlix-Outfit</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap -->
+
+
+    <style>
+        /*banner */
+        /*banner */
+
+        :root {
+            --bg-color: rgb(0, 0, 0);
+            --text-color: rgb(255, 255, 255);
+
+        }
+
+
+        body {
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        .banner {
+            position: relative;
+            background: url('/data/banner.jpg') no-repeat center center / cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+            z-index: 1;
+        }
+
+        .nav-link {
+            display: inline-flex; /* Icon und Text nebeneinander */
+            align-items: center; /* Vertikal zentriert */
+            color: white; /* Textfarbe */
+            font-size: 15px; /* Schriftgröße */
+            margin-right: 5px; /* Abstand zwischen den Buttons */
+            padding: 5px 5px; /* Innenabstand */
+            border: 2px solid white; /* Weiße Umrahmung */
+            border-radius: 5px; /* Runde Ecken */
+            text-decoration: none; /* Unterstreichung entfernen */
+            transition: all 0.3s ease; /* Animation für Hover */
+        }
+
+        .nav-link i {
+            margin-right: 5px; /* Abstand zwischen Icon und Text */
+        }
+
+        .nav-link:hover {
+            background-color: white; /* Hintergrundfarbe bei Hover */
+            color: black; /* Textfarbe bei Hover */
+        }
+
+        /*banner */
+        /*banner */
+       
+
+        .content {
+            color: rgb(255, 255, 255);
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .txt {
+            text-align: flex;
+            background-color: #000;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            color: rgb(255, 255, 255);
+            max-width: 300px;
+        }  
+
+        #linkList {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dynamisches Layout */
+            gap: 20px; /* Abstand zwischen den Karten */
+            margin: 20px;
+            padding: 10px;
+        }
+
+        .link-item {
+            border: 2px solid rgb(179, 97, 247);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none; /* Unterstreichung entfernen */
+            color: white; /* Textfarbe */
+            padding: 15px;
+            border-radius: 10px;
+            background: #1d1d1d;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            
+        }
+
+        .link-item img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .link-item:hover {
+            background-color: #3f3e3f;
+            transform: scale(1.02); /* Vergrößerung bei Hover */
+        }
+
+
+
+        /*footer */
+        /*footer */
+        .footer {
+            background-color: #000;
+            height: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0;
+            margin: 0;
+        }
+        .footer::before {
+            content: '';
+            width: 90%;
+            border-top: 2px solid #fff;
+            display: block;
+        }
+        .footer-text {
+            background-color: #000;
+            padding: 10px 0;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            margin: 0;
+        }
+        /*footer */
+        /*footer */
+    </style>
+</head>
+
+<body>
+    <!-- Banner -->
+    <div class="banner">
+        <nav style="position: absolute; top: 10px; right: 20px;">
+            <a href="/links/index.html" class="nav-link">
+                <i class="fa-solid fa-shirt"></i>
+                Outfit
+            </a>
+            <a href="../index.html" class="nav-link">
+                <i class="fa-solid fa-thumbs-up"></i>
+                Socialmedia
+            </a>
+            <!--<a href="/com/index.html" class="nav-link">
+                <i class="fa-solid fa-users"></i>
+                Community
+            </a>-->
+            <a href="/block/index.html" class="nav-link">
+                <i class="bi bi-chat-left-text-fill"></i>
+                Block
+            </a>
+        </nav>
+        <div class="content">
+            <h1 class="display-4"  style="font-size: 85px;">My Outfit</h1>
+            <p class="lead">Oh look a cute boy!</p>
+        </div>
+    </div>
+    <!-- Banner -->
+    <!-- Banner -->
+
+
+
+    <div id="linkList" class="row"></div>
+
+    <script>
+        async function loadLinks() {
+            try {
+                const response = await fetch('./data/links.json');
+                const links = await response.json();
+                renderLinks(links);
+            } catch (error) {
+                console.error("Fehler beim Laden der Links:", error);
+            }
+        }
+
+        function renderLinks(links) {
+        const linkList = document.getElementById("linkList");
+        linkList.innerHTML = "";
+
+        links.forEach(link => {
+            // Erstelle das <a>-Element
+            const linkItem = document.createElement("a");
+            linkItem.className = "link-item";
+            linkItem.href = link.url; // Setze die URL des Links
+            linkItem.target = "_blank"; // Öffne den Link in einem neuen Tab
+
+            // Erstelle das Bild
+            const img = document.createElement("img");
+            img.src = `./data/${link.image}`;
+            img.alt = link.description;
+
+            // Erstelle die Beschreibung
+            const description = document.createElement("div");
+            description.textContent = link.description;
+
+            // Füge Bild und Beschreibung zum Link hinzu
+            linkItem.appendChild(img);
+            linkItem.appendChild(description);
+
+            // Füge den Link zur Liste hinzu
+            linkList.appendChild(linkItem);
+        });
+    }
+
+
+        loadLinks();
+    </script>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="footer"></footer>
+    <div class="footer-text">
+        <p>Oh look you cute Boy</p>
+        <i class="bi bi-github"></i>
+        <a href="https://github.com/Femboy-Flix/FemboyFlix-Website" style="color: rgb(255, 255, 255);">GitHub</a><br>
+        <i class="bi bi-shield-check"></i>
+        <a href="/legal/index.html" style="color: rgb(255, 255, 255);">Impressum/Privacy Policy</a>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
