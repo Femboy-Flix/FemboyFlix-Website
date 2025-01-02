@@ -3,105 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FemboyFlix</title>
+    <title>FemboyFlix-Outfit</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap -->
+
+
     <style>
+        /*banner */
+        /*banner */
+
         :root {
-            --bg-color: pink;
-            --text-color: rgb(179, 0, 255);
-            --header-bg: rgb(253, 177, 190);
-            --menu-bg: white;
-            --menu-hover: pink;
-            --button-bg: darkviolet;
-            --button-hover: #b300b3;
+            --bg-color: rgb(0, 0, 0);
+            --text-color: rgb(255, 255, 255);
+
         }
 
-        [data-theme="dark"] {
-            --bg-color: #333;
-            --text-color: rgb(179, 0, 255);
-            --header-bg: #444;
-            --menu-bg: #3d3d3d;
-            --menu-hover: #555;
-            --button-bg: darkviolet;
-            --button-hover: #888;
-        }
 
         body {
-            font-family: Arial, sans-serif;
+            background-color: #000000;
             margin: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
         }
 
         .banner {
-            width: 100%;
-            height: 300px;
-            background-image: url('./data/banner.jpg');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            background: url('/data/banner.jpg') no-repeat center center / cover;
+            height: 400px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 2.5em;
-            text-shadow: 1px 1px 2px black;
-            position: relative; /* Ermöglicht das Platzieren von Elementen wie dem Button */
-        }
-
-        h1 {
-            position: sticky;
-            top: 0;
-            margin: 0;
-            padding: 10px;
-            font-size: 1.5em;
-            background-color: var(--header-bg);
-            color: var(--text-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.8em;
             
         }
-
-        .menu-icon {
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
-        .menu-dropdown {
-            display: none;
+        .banner::after {
+            content: '';
             position: absolute;
-            right: 10px;
-            top: 60px;
-            background-color: var(--menu-bg);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+            z-index: 1;
+        }
+
+        .nav-link {
+            display: inline-flex; /* Icon und Text nebeneinander */
+            align-items: center; /* Vertikal zentriert */
+            color: white; /* Textfarbe */
+            font-size: 15px; /* Schriftgröße */
+            margin-right: 5px; /* Abstand zwischen den Buttons */
+            padding: 5px 5px; /* Innenabstand */
+            border: 2px solid white; /* Weiße Umrahmung */
+            border-radius: 5px; /* Runde Ecken */
+            text-decoration: none; /* Unterstreichung entfernen */
+            transition: all 0.3s ease; /* Animation für Hover */
+        }
+
+        .nav-link i {
+            margin-right: 5px; /* Abstand zwischen Icon und Text */
+        }
+
+        .nav-link:hover {
+            background-color: white; /* Hintergrundfarbe bei Hover */
+            color: black; /* Textfarbe bei Hover */
+        }
+
+        /*banner */
+        /*banner */
+       
+
+        .content {
+            color: rgb(255, 255, 255);
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .txt {
+            text-align: flex;
+            background-color: #000;
             border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            min-width: 150px;
-        }
+            border-radius: 8px;
+            padding: 15px;
+            color: rgb(255, 255, 255);
+            max-width: 300px;
+        }  
 
-        .menu-dropdown a {
-            display: block;
+        #linkList {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dynamisches Layout */
+            gap: 20px; /* Abstand zwischen den Karten */
+            margin: 20px;
             padding: 10px;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.6em;
-            border-radius: 10px;
-        }
-
-        .menu-dropdown a:hover {
-            background-color: var(--menu-hover);
         }
 
         .link-item {
+            border: 2px solid rgb(179, 97, 247);
             display: flex;
-            align-items: left;
-            margin: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background-color: var(--menu-bg);
             flex-direction: column;
+            align-items: center;
+            text-decoration: none; /* Unterstreichung entfernen */
+            color: white; /* Textfarbe */
+            padding: 15px;
+            border-radius: 10px;
+            background: #1d1d1d;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            
         }
 
         .link-item img {
@@ -111,93 +124,75 @@
             border-radius: 10px;
         }
 
-        .link-item button {
-            background-color: var(--button-bg);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            text-align: left;
-            margin-bottom: 10px;
-            border-radius: 10px;
+        .link-item:hover {
+            background-color: #3f3e3f;
+            transform: scale(1.02); /* Vergrößerung bei Hover */
         }
 
-        .link-item button:hover {
-            background-color: var(--button-hover);
-        }
 
-        .dark-mode-toggle {
-         position: absolute; /* Absolute Positionierung innerhalb des Banners */
-        top: 10px; /* Abstand von der oberen Kante des Banners */
-         right: 10px; /* Abstand von der rechten Kante des Banners */
-         padding: 10px 20px; /* Innenabstand des Buttons */
-         background-color: var(--button-bg); /* Hintergrundfarbe */
-         color: white; /* Schriftfarbe */
-         border: none; /* Keine Rahmenlinie */
-         border-radius: 10px; /* Abgerundete Ecken */
-         cursor: pointer; /* Zeiger als Mauszeiger */
-         font-size: 1em; /* Schriftgröße */
-         z-index: 10; /* Über anderen Elementen anzeigen */
-        }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: var(--header-bg);
-            border-top: 1px solid #ddd;
-        }
-
-        .footer-content {
-            display: inline-block;
-            text-align: center;
-        }
-
-        .github-link {
+        /*footer */
+        /*footer */
+        .footer {
+            background-color: #000;
+            height: 20px;
+            width: 100%;
             display: flex;
-            align-items: center;
             justify-content: center;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 18px;
-            margin-bottom: 10px;
+            align-items: flex-start;
+            padding: 0;
+            margin: 0;
         }
-
-        .github-link img {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
+        .footer::before {
+            content: '';
+            width: 90%;
+            border-top: 2px solid #fff;
+            display: block;
         }
-
-        .footer-text p {
-            margin: 5px 0;
-            color: var(--text-color);
-            font-size: 14px;
+        .footer-text {
+            background-color: #000;
+            padding: 10px 0;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            margin: 0;
         }
-
-
+        /*footer */
+        /*footer */
     </style>
 </head>
+
 <body>
-    <header class="banner">
-        <button class="dark-mode-toggle" onclick="toggleDarkMode()"></button>
-</header>
-    </header>
-
-    <h1>
-        Hii Boys My outfit list
-        <span class="menu-icon" onclick="toggleMenu()">☰</span>
-        <div class="menu-dropdown" id="menuDropdown">
-            <a href="/links/index.html">My outfit</a>
-            <a href="../index.html">Socialmedia</a>
-            <a href="/com/index.html">Community</a>
+    <!-- Banner -->
+    <div class="banner">
+        <nav style="position: absolute; top: 10px; right: 20px;">
+            <a href="/links/index.html" class="nav-link">
+                <i class="fa-solid fa-shirt"></i>
+                Outfit
+            </a>
+            <a href="../index.html" class="nav-link">
+                <i class="fa-solid fa-thumbs-up"></i>
+                Social Media
+            </a>
+            <!--<a href="/com/index.html" class="nav-link">
+                <i class="fa-solid fa-users"></i>
+                Community
+            </a>-->
+            <a href="/block/index.html" class="nav-link">
+                <i class="bi bi-chat-left-text-fill"></i>
+                Blog
+            </a>
+        </nav>
+        <div class="content">
+            <h1 class="display-4"  style="font-size: 85px;">My Outfit</h1>
+            <p class="lead">Oh look a cute boy!</p>
         </div>
-    </h1>
+    </div>
+    <!-- Banner -->
+    <!-- Banner -->
 
-    <div id="linkList"></div>
 
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <div id="linkList" class="row"></div>
 
     <script>
         async function loadLinks() {
@@ -211,70 +206,51 @@
         }
 
         function renderLinks(links) {
-            const linkList = document.getElementById("linkList");
-            linkList.innerHTML = "";
+        const linkList = document.getElementById("linkList");
+        linkList.innerHTML = "";
 
-            links.forEach(link => {
-                const linkItem = document.createElement("div");
-                linkItem.className = "link-item";
+        links.forEach(link => {
+            // Erstelle das <a>-Element
+            const linkItem = document.createElement("a");
+            linkItem.className = "link-item";
+            linkItem.href = link.url; // Setze die URL des Links
+            linkItem.target = "_blank"; // Öffne den Link in einem neuen Tab
 
-                const img = document.createElement("img");
-                img.src = `./data/${link.image}`;
-                img.alt = link.description;
+            // Erstelle das Bild
+            const img = document.createElement("img");
+            img.src = `./data/${link.image}`;
+            img.alt = link.description;
 
-                const button = document.createElement("button");
-                button.textContent = "To product";
-                button.onclick = () => window.open(link.url, "_blank");
+            // Erstelle die Beschreibung
+            const description = document.createElement("div");
+            description.textContent = link.description;
 
-                const description = document.createElement("div");
-                description.textContent = link.description;
+            // Füge Bild und Beschreibung zum Link hinzu
+            linkItem.appendChild(img);
+            linkItem.appendChild(description);
 
-                linkItem.appendChild(img);
-                linkItem.appendChild(button);
-                linkItem.appendChild(description);
-
-                linkList.appendChild(linkItem);
-            });
-        }
-
-        function toggleMenu() {
-            const menu = document.getElementById("menuDropdown");
-            menu.style.display = menu.style.display === "block" ? "none" : "block";
-        }
-
-        function toggleDarkMode() {
-            const theme = document.documentElement.getAttribute("data-theme");
-            document.documentElement.setAttribute("data-theme", theme === "dark" ? "light" : "dark");
-            localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
-        }
-
-        // Set theme based on system preference or saved setting
-        const savedTheme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-        document.documentElement.setAttribute("data-theme", savedTheme);
-
-        document.addEventListener("click", (event) => {
-            const menu = document.getElementById("menuDropdown");
-            if (!event.target.closest(".menu-icon") && !event.target.closest("#menuDropdown")) {
-                menu.style.display = "none";
-            }
+            // Füge den Link zur Liste hinzu
+            linkList.appendChild(linkItem);
         });
+    }
+
 
         loadLinks();
     </script>
 
-    <footer>
-        <div class="footer-content">
-            <a href="https://github.com/Femboy-Flix/FemboyFlix-Website" target="_blank" class="github-link">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo">
-                GitHub
-            </a>
-            <a href="/legal/index.html" style="color: rgb(179, 0, 255);">Impressum/Privacy Policy</a>
-            <div class="footer-text">
-                <p>UwU look a cute boy </p>
-                <p>More information on GitHub.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="footer"></footer>
+    <div class="footer-text">
+        <p>Oh, what a cute boy!</p>
+        <i class="bi bi-github"></i>
+        <a href="https://github.com/Femboy-Flix/FemboyFlix-Website" style="color: rgb(255, 255, 255);">GitHub</a><br>
+        <i class="bi bi-shield-check"></i>
+        <a href="/legal/index.html" style="color: rgb(255, 255, 255);">Imprint/Privacy Policy</a>
+    </div>
 
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

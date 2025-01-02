@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FemboyFlix-Blog</title>
+    <title>FemboyFlix Blog</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,10 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Bootstrap -->
 
-
     <style>
-        /*banner */
-        /*banner */
         body {
             background-color: #000;
             margin: 0;
@@ -31,8 +28,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            
         }
+
         .banner::after {
             content: '';
             position: absolute;
@@ -45,30 +42,26 @@
         }
 
         .nav-link {
-            display: inline-flex; /* Icon und Text nebeneinander */
-            align-items: center; /* Vertikal zentriert */
-            color: white; /* Textfarbe */
-            font-size: 15px; /* Schriftgröße */
-            margin-right: 5px; /* Abstand zwischen den Buttons */
-            padding: 5px 5px; /* Innenabstand */
-            border: 2px solid white; /* Weiße Umrahmung */
-            border-radius: 5px; /* Runde Ecken */
-            text-decoration: none; /* Unterstreichung entfernen */
-            transition: all 0.3s ease; /* Animation für Hover */
+            display: inline-flex;
+            align-items: center;
+            color: white;
+            font-size: 15px;
+            margin-right: 5px;
+            padding: 5px 5px;
+            border: 2px solid white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         .nav-link i {
-            margin-right: 5px; /* Abstand zwischen Icon und Text */
+            margin-right: 5px;
         }
 
         .nav-link:hover {
-            background-color: white; /* Hintergrundfarbe bei Hover */
-            color: black; /* Textfarbe bei Hover */
+            background-color: white;
+            color: black;
         }
-
-        /*banner */
-        /*banner */
-       
 
         .content {
             color: rgb(255, 255, 255);
@@ -77,7 +70,6 @@
         }
 
         .txt {
-            text-align: flex;
             background-color: var(--menu-bg);
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -86,34 +78,32 @@
             max-width: 300px;
         }  
 
-        /*abaoutme  */
-        /*abaoutme  */
         .gradient-box {
-            background: linear-gradient(45deg, #d400ff,#554df9); /* Farbverlauf */
-            color: #fff; /* Weißer Text */
-            padding: 20px; /* Innenabstand */
-            border-radius: 10px; /* Runde Ecken */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Schatten */
-            display: flex; /* Flexbox für Layout */
-            align-items: center; /* Inhalte vertikal zentrieren */
-            text-align: left; /* Text linksbündig */
-            width: 90%; /* Maximalbreite der Box */
-            margin: 20px auto; /* Zentriert auf der Seite */
+            background: linear-gradient(45deg, #d400ff, #554df9);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            text-align: left;
+            width: 90%;
+            margin: 20px auto;
         }
 
         .gradient-box img {
-            width: 100px; /* Bildbreite */
-            height: 100px; /* Bildhöhe */
-            object-fit: cover; /* Bildfüllung */
-            border-radius: 50%; /* Runde Bildform */
-            margin-right: 20px; /* Abstand zum Text */
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
         }
 
         .gradient-box .text-content {
-            flex: 1; /* Text nimmt verbleibenden Platz ein */
-            display: flex; /* Innerhalb des Textbereichs */
-            flex-direction: column; /* Text vertikal anordnen */
-            justify-content: center; /* Text vertikal zentrieren */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .gradient-box h2 {
@@ -126,85 +116,69 @@
             margin: 5px 0 0;
             line-height: 1.5;
         }
-        /*abaoutme  */
-        /*abaoutme  */
 
-
-        /* Container für Artikel */
         .article-container {
             display: flex;
-            flex-direction: column; /* Artikel untereinander anordnen */
-            align-items: center; /* Zentrieren der Artikel in der Breite */
-            gap: 25px; /* Abstand zwischen den Artikeln */
-            padding: 20px; /* Innenabstand für den Container */
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            padding: 20px;
         }
 
-        /* Artikelbox */
         .article-box {
-            width: 90%; /* 90% der Seitenbreite */
-            max-width: 1200px; /* Optionale maximale Breite */
-            background: linear-gradient(45deg, #554df9, #d400ff); /* Farbverlauf */
+            width: 90%;
+            max-width: 1200px;
+            background: linear-gradient(45deg, #554df9, #d400ff);
             color: #fff;
             border-radius: 10px;
             padding: 15px;
-            
         }
 
-        /* Titel des Artikels */
         .article-box h3 {
             margin-bottom: 15px;
         }
 
-        /* Textbereich */
         .article-box .content {
-            color: #ffffff; /* Schwarzer Text */
+            color: #ffffff;
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 10px;
             font-size: 1rem;
         }
 
-        /* Meta-Informationen */
         .article-box .meta {
             font-size: 0.9rem;
             color: #ddd;
         }
-        
-        /* Header der Artikelbox */
+
         .article-header {
             display: flex;
-            align-items: center; /* Vertikal zentrieren */
-            margin-bottom: 15px; /* Abstand unter dem Header */
+            align-items: center;
+            margin-bottom: 15px;
         }
 
-        /* Bild vor der Überschrift */
         .article-icon {
-            width: 40px; /* Breite des Bildes */
-            height: 40px; /* Höhe des Bildes */
-            margin-right: 10px; /* Abstand zwischen Bild und Überschrift */
-            border-radius: 50%; /* Optional: Rundes Bild */
-            object-fit: cover; /* Bildfüllung */
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
-        /* Überschrift */
         .article-header h3 {
-            margin: 0; /* Kein zusätzlicher Abstand */
+            margin: 0;
             font-size: 1.5rem;
-            color: #fff; /* Textfarbe */
+            color: #fff;
         }
+
         .imgatach {
-            width: 150px; /* Breite des Bildes */
-            height: 150px; /* Höhe des Bildes */
-            margin-right: 10px; /* Abstand zwischen Bild und Überschrift */
-            border-radius: 5px; /* Optional: Rundes Bild */
-            object-fit: cover; /* Bildfüllung */
+            width: 150px;
+            height: 150px;
+            margin-right: 10px;
+            border-radius: 5px;
+            object-fit: cover;
         }
 
-
-
-
-        /*footer */
-        /*footer */
         .footer {
             background-color: #000;
             height: 20px;
@@ -215,12 +189,14 @@
             padding: 0;
             margin: 0;
         }
+
         .footer::before {
             content: '';
             width: 90%;
             border-top: 2px solid #fff;
             display: block;
         }
+
         .footer-text {
             background-color: #000;
             padding: 10px 0;
@@ -228,13 +204,10 @@
             text-align: center;
             margin: 0;
         }
-        /*footer */
-        /*footer */
     </style>
 </head>
 
 <body>
-    <!-- Banner -->
     <div class="banner">
         <nav style="position: absolute; top: 10px; right: 20px;">
             <a href="/links/index.html" class="nav-link">
@@ -243,104 +216,88 @@
             </a>
             <a href="../index.html" class="nav-link">
                 <i class="fa-solid fa-thumbs-up"></i>
-                Socialmedia
+                Social Media
             </a>
-            <!--<a href="/com/index.html" class="nav-link">
-                <i class="fa-solid fa-users"></i>
-                Community
-            </a>-->
             <a href="/block/index.html" class="nav-link">
                 <i class="bi bi-chat-left-text-fill"></i>
                 Blog
             </a>
         </nav>
         <div class="content">
-            <h1 class="display-4"  style="font-size: 85px;">My Blog </h1>
-            <p class="lead">About my feelings and ideas</p>
+            <h1 class="display-4" style="font-size: 85px;">My Blog</h1>
+            <p class="lead">Sharing my thoughts and ideas</p>
         </div>
     </div>
-    <!-- Banner -->
-    <!-- Banner -->
-      
-    <!-- abme -->
-    <!-- ambme -->
+
     <div class="gradient-box">
-        <img src="./data/abme.png" alt="Beispielbild">
+        <img src="/data/abme.png" alt="Profile Picture">
         <div class="text-content">
             <i class="bi bi-pin-angle-fill"></i>
             <h2>About Me</h2>
-            <p>Hello its me just a cute boy om my way through my life. I try to have fun with making vidios. I wona ty so make the femboy community even bigger UwU. I hope my vidios make your day even better. I try many form from digital art (Foto,Video,2D Animation,musik,coding) </p>
+            <p>Hello, I’m a sweet boy finding my way through life. I love creating videos and growing the Femboy community. My work includes digital art such as photos, videos, 2D animations, music, and programming. I hope my videos bring a smile to your face!</p>
         </div>
     </div>
-    <!-- abme -->
-    <!-- ambme -->
 
     <div class="article-container">
         <div class="article-box" data-file="./data/article1.txt">
             <div class="article-header">
-                <img src="./data/abme.png" alt="Beispielbild" class="article-icon">
-                <h3>Don´t fit your thigh-higs 🇬🇧</h3>
+                <img src="/data/abme.png" alt="Profile Picture" class="article-icon">
+                <h3>Don’t Fit Your Thigh-Highs 🇬🇧</h3>
             </div>
             <div class="content">
-                <p>Wird geladen...</p>
+                <p>Loading...</p>
             </div>
             <div class="meta">
-                <small>Autor: FemboyFlix</small>
-                <br>
-                <small>Quellen: Beispielquelle</small>
+                <small>Author: FemboyFlix</small><br>
+                <small>Source: Example Source</small>
             </div>
         </div>
-    
+
         <div class="article-box" data-file="./data/article2.txt">
             <div class="article-header">
-                <img src="./data/abme.png" alt="Beispielbild" class="article-icon">
-                <h3>Stress mit TikTok 🇩🇪</h3>
+                <img src="/data/abme.png" alt="Profile Picture" class="article-icon">
+                <h3>Struggles with TikTok 🇩🇪</h3>
             </div>
             <div class="content">
-                <p>Wird geladen...</p>
+                <p>Loading...</p>
             </div>
             <div class="meta">
-                <small>Autor: FemboyFlix</small>
-                <br>
-                <small>Quellen: Beispielquelle</small>
+                <small>Author: FemboyFlix</small><br>
+                <small>Source: Example Source</small>
             </div>
         </div>
+
         <div class="article-box" data-file="./data/article3.txt">
             <div class="article-header">
-                <img src="./data/abme.png" alt="Beispielbild" class="article-icon">
-                <h3>ich wahr auf dem CCC 🇩🇪</h3>
+                <img src="/data/abme.png" alt="Profile Picture" class="article-icon">
+                <h3>My Experience at the CCC 🇩🇪</h3>
             </div>
             <div class="content">
-                <p>Wird geladen...</p>
+                <p>Loading...</p>
             </div>
             <div class="meta">
                 <img src="./data/bild10.jpg" class="imgatach">
                 <img src="./data/bild11.jpg" class="imgatach">
                 <img src="./data/bild12.jpg" class="imgatach">
                 <br>
-                <small>@FemboyFlix</small>
-                <br>
-                <small>Date: 28.12.2024</small>
+                <small>@FemboyFlix</small><br>
+                <small>Date: December 28, 2024</small>
             </div>
         </div>
     </div>
-    
-
 
     <script>
-        // Funktion zum Laden und Einfügen der Texte
         function loadArticles() {
             const articleBoxes = document.querySelectorAll('.article-box');
-    
+
             articleBoxes.forEach((box) => {
                 const filePath = box.getAttribute('data-file');
                 const contentElement = box.querySelector('.content p');
-    
-                // Fetch die .txt Datei
+
                 fetch(filePath)
                     .then(response => {
                         if (!response.ok) {
-                            throw new Error(`Fehler beim Laden der Datei: ${filePath}`);
+                            throw new Error(`Error loading file: ${filePath}`);
                         }
                         return response.text();
                     })
@@ -348,57 +305,24 @@
                         contentElement.textContent = text;
                     })
                     .catch(error => {
-                        contentElement.textContent = 'Fehler beim Laden des Artikels.';
+                        contentElement.textContent = 'Error loading article.';
                         console.error(error);
                     });
             });
         }
-    
-        // Starte das Laden der Artikel nach dem Laden der Seite
+
         document.addEventListener('DOMContentLoaded', loadArticles);
     </script>
-    
- 
-    
 
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Footer -->
-    <!-- Footer -->
     <div class="footer"></div>
     <footer class="footer-text">
-        <p>Oh look you cute Boy</p>
+        <p>Oh, look! You’re a sweet boy!</p>
         <i class="bi bi-github"></i>
         <a href="https://github.com/Femboy-Flix/FemboyFlix-Website" style="color: rgb(255, 255, 255);">GitHub</a><br>
         <i class="bi bi-shield-check"></i>
-        <a href="/legal/index.html" style="color: rgb(255, 255, 255);">Impressum/Privacy Policy</a>
+        <a href="/legal/index.html" style="color: rgb(255, 255, 255);">Imprint/Privacy Policy</a>
     </footer>
 
-
-
-
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

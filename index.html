@@ -4,95 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FemboyFlix</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap -->
+
     <style>
-        :root {
-            --bg-color: pink;
-            --text-color: rgb(179, 0, 255);
-            --header-bg: rgb(253, 177, 190);
-            --menu-bg: white;
-            --menu-hover: pink;
-            --button-bg: darkviolet;
-            --button-hover: #b300b3;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #333;
-            --text-color: rgb(179, 0, 255);
-            --header-bg: #444;
-            --menu-bg: #3d3d3d;
-            --menu-hover: #666;
-            --button-bg: darkviolet;
-            --button-hover: #888;
-        }
-
         body {
-            font-family: sans-serif;
+            background-color: #000;
             margin: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
         }
 
         .banner {
-            width: 100%;
-            height: 300px;
-            background-image: url('./data/banner.jpg');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            background: url('/data/banner.jpg') no-repeat center center / cover;
+            height: 400px;
             display: flex;
+            align-items: center;
             justify-content: center;
+        }
+        .banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+            z-index: 1;
+        }
+
+        nav {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            display: flex;
+            gap: 2px;
+        }
+
+        .nav-link {
+            display: inline-flex;
             align-items: center;
             color: white;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px black;
-            position: relative; /* Ermöglicht das Platzieren von Elementen wie dem Button */
-        }
-
-        h1 {
-            position: sticky;
-            top: 0;
-            margin: 0;
-            padding: 10px;
-            background-color: var(--header-bg);
-            color: var(--text-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.8em;
-        }
-
-        h2 {
-            border-radius: 10px; 
-        }
-
-        .menu-icon {
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
-        .menu-dropdown {
-            display: none;
-            position: absolute;
-            right: 10px;
-            top: 60px;
-            background-color: var(--menu-bg);
-            border: 1px solid #ddd;
+            font-size: 15px;
+            margin-right: 5px;
+            padding: 5px 5px;
+            border: 2px solid white;
             border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            min-width: 150px;
-        }
-
-        .menu-dropdown a {
-            display: block;
-            padding: 10px;
-            color: var(--text-color);
             text-decoration: none;
-            font-size: 0.6em;
-            border-radius: 10px;
+            transition: all 0.3s ease;
         }
 
-        .menu-dropdown a:hover {
-            background-color: var(--menu-hover);
+        .nav-link i {
+            margin-right: 5px;
+        }
+
+        .nav-link:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .content {
+            color: rgb(255, 255, 255);
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .txt {
+            text-align: flex;
+            border-radius: 8px;
+            padding: 15px;
+            color: rgb(255, 255, 255);
+            max-width: 300px;
         }
 
         .link-list {
@@ -104,28 +93,33 @@
         }
 
         .link-item {
-            flex: 1 1 calc(50% - 20px); /* Jede Kachel nimmt mindestens 50% minus dem Abstand ein */
-            max-width: 125px; /* Begrenzung für größere Bildschirme */
+            flex: 1 1 calc(50% - 20px);
+            max-width: 150px;
             text-align: center;
             background-color: var(--menu-bg);
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 15px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+            text-decoration: none;
         }
 
         .link-item img {
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            margin: 0 auto 10px; /* Zentriert das Bild und fügt Abstand darunter hinzu */
+            margin: 0 auto 10px;
             display: block;
         }
 
+        .link-item a:hover {
+            background-color: var(--button-hover);
+        }
 
-        .link-item a {
+        .linkone {
             display: inline-block;
-            margin-top: 0;
+            margin-top: 10px;
             padding: 10px 15px;
             background-color: var(--button-bg);
             color: white;
@@ -134,157 +128,156 @@
             font-weight: bold;
         }
 
-        .link-item a:hover {
-            background-color: var(--button-hover);
-        }
-
-        .dark-mode-toggle {
-            position: absolute; 
-            top: 10px;
-            right: 10px;
-            padding: 10px 20px;
-            background-color: var(--button-bg);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 0.4em;
-            z-index: 10;
-        }
-
-        footer {
-            text-align: center;
+        .gradient-box {
+            background: linear-gradient(45deg, #554df9, #d400ff);
+            color: #fff;
             padding: 20px;
-            background-color: var(--header-bg);
-            border-top: 1px solid #ddd;
-        }
-
-        .footer-content {
-            display: inline-block;
-            text-align: center;
-        }
-
-        .github-link {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
+            text-align: left;
+            width: 85%;
+            margin: 20px auto;
+        }
+
+        .gradient-box img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .gradient-box .text-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 18px;
-            margin-bottom: 10px;
         }
 
-        .github-link img {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
+        .gradient-box h2 {
+            font-size: 1.5rem;
+            margin: 0;
         }
 
-        .footer-text p {
-            margin: 5px 0;
-            color: var(--text-color);
-            font-size: 14px;
+        .gradient-box p {
+            font-size: 1rem;
+            margin: 5px 0 0;
+            line-height: 1.5;
         }
 
+        .footer {
+            background-color: #000;
+            height: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0;
+            margin: 0;
+        }
+        .footer::before {
+            content: '';
+            width: 90%;
+            border-top: 2px solid #fff;
+            display: block;
+        }
+        .footer-text {
+            background-color: #000;
+            padding: 10px 0;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            margin: 0;
+        }
     </style>
 </head>
+
 <body>
-    <header class="banner">
-        <div></div>
-        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    </header>
-
-    <h1>
-        My Socialmedia
-        <span class="menu-icon" onclick="toggleMenu()">☰</span>
-        <div class="menu-dropdown" id="menuDropdown">
-            <a href="/links/index.html">My Outfit</a>
-            <a href="../index.html">Socialmedia</a>
-            <a href="/com/index.html">Community</a>
+    <!-- Banner -->
+    <div class="banner">
+        <nav style="position: absolute; top: 10px; right: 20px;">
+            <a href="/links/index.html" class="nav-link">
+                <i class="fa-solid fa-shirt"></i>
+                Outfit
+            </a>
+            <a href="../index.html" class="nav-link">
+                <i class="fa-solid fa-thumbs-up"></i>
+                Social Media
+            </a>
+            <a href="/block/index.html" class="nav-link">
+                <i class="bi bi-chat-left-text-fill"></i>
+                Blog
+            </a>
+        </nav>
+        <div class="content">
+            <h1 class="display-4" style="font-size: 85px;">Welcome</h1>
+            <p class="lead">Oh look, such a cute boy!</p>
         </div>
-    </h1>
+    </div>
 
+    <!-- Links -->
     <div class="link-list">
-        <div class="link-item">
+        <a href="https://x.com/FemboyFlix" class="link-item" target="_blank">
             <img src="./data/twitter-icon.png" alt="Twitter">
-            <a href="https://x.com/FemboyFlix" target="_blank">Twitter</a>
-        </div>
-        <div class="link-item">
-            <img src="./data/instagram-icon.png" alt="Instagram">
-            <a href="https://www.instagram.com/femboyflix/profilecard/?igsh=MWt3a2hwYzhoYTZneQ==" target="_blank">Instagram</a>
-        </div>
-        <div class="link-item">
-            <img src="./data/youtube-icon.png" alt="YouTube">
-            <a href="https://youtube.com/@femboyflix?si=huBSAKolD-52y35w" target="_blank">YouTube</a>
-        </div>
-        <div class="link-item">
-            <img src="./data/tiktok-icon.png" alt="TikTok">
-            <a href="https://www.tiktok.com/@femboyflix?_t=8rfsXVwgSSl&_r=1" target="_blank">TikTok</a>
-        </div>
-    </div>
-
-    <div class="link-list">
-        <h2>Supported Discord servers</h2>
-    </div>
-
-
-    <div class="link-list">
-        <div class="link-item">
-            <img src="./data/femboi.png" alt="Discord">
-            <a href="https://discord.gg/tqS9zb3U" target="_blank">Femboi Gang</a>
-        </div>
-    </div>
-
-    <div class="link-list">
-        <h2>My Amazon wishlist</h2>
-    </div>
-
-
-    <div class="link-list">
-        <div class="link-item a">
-            <img src="./data/amazon.png" alt="Discord">
-            <a href="https://www.amazon.de/registries/gl/guest-view/6ABJJX18SH21" target="_blank">wishlist</a>
-        </div>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById("menuDropdown");
-            menu.style.display = menu.style.display === "block" ? "none" : "block";
-        }
-
-        function toggleDarkMode() {
-            const theme = document.documentElement.getAttribute("data-theme");
-            document.documentElement.setAttribute("data-theme", theme === "dark" ? "light" : "dark");
-            localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
-        }
-
-        // Set theme based on system preference or saved setting
-        const savedTheme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-        document.documentElement.setAttribute("data-theme", savedTheme);
-
-        document.addEventListener("click", (event) => {
-            const menu = document.getElementById("menuDropdown");
-            if (!event.target.closest(".menu-icon") && !event.target.closest("#menuDropdown")) {
-                menu.style.display = "none";
-            }
-        });
-    </script>
-
-    <footer>
-    <div class="footer-content">
-        <a href="https://github.com/Femboy-Flix/FemboyFlix-Website" target="_blank" class="github-link">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo">
-            GitHub
+            <i class="bi bi-twitter-x"></i><span> Twitter </span>
         </a>
-        <a href="/legal/index.html" style="color: rgb(179, 0, 255);">Impressum/Privacy Policy</a>
-        <div class="footer-text">
-            <p>UwU look a cute boy </p>
-            <p>More information on GitHub.</p>
+        <a href="https://www.instagram.com/femboyflix/profilecard/?igsh=MWt3a2hwYzhoYTZneQ==" class="link-item" target="_blank">
+            <img src="./data/instagram-icon.png" alt="Instagram">
+            <i class="bi bi-instagram"></i><span> Instagram </span>
+        </a>
+        <a href="https://youtube.com/@femboyflix?si=huBSAKolD-52y35w" class="link-item" target="_blank">
+            <img src="./data/youtube-icon.png" alt="YouTube">
+            <i class="bi bi-youtube"></i><span> YouTube </span>
+        </a>
+        <a href="https://www.tiktok.com/@femboyflix?_t=8rfsXVwgSSl&_r=1" class="link-item" target="_blank">
+            <img src="./data/tiktok-icon.png" alt="TikTok">
+            <i class="bi bi-tiktok"></i><span> TikTok </span>
+        </a>
+        <a href="https://www.reddit.com/user/dawid-ER-hard/?" class="link-item" target="_blank">
+            <img src="./data/reddit.png" alt="Reddit">
+            <i class="bi bi-reddit"></i><span> Reddit </span>
+        </a>
+        <a href="https://www.amazon.de/registries/gl/guest-view/6ABJJX18SH21" class="link-item" target="_blank">
+            <img src="./data/amazon.png" alt="Amazon Wishlist">
+            <i class="bi bi-amazon"></i><span> Wishlist </span>
+        </a>
+    </div>
+
+    <!-- About Me -->
+    <div class="gradient-box">
+        <img src="./data/abme.png" alt="Profile Picture">
+        <div class="text-content">
+            <h2>About Me</h2>
+            <p>Hello, it's me, just a cute boy on my way through life. I try to have fun making videos. I want to try to make the femboy community even bigger UwU. I hope my videos make your day  better.</p>
         </div>
     </div>
+
+    <div class="content">
+        <h1>Supported Discord Servers</h1>
+    </div>
+    <div class="link-list">
+        <a href="https://disboard.org/de/server/813849176999854102" class="link-item" target="_blank">
+            <img src="./data/femboi.png" alt="Discord">
+            <i class="bi bi-discord"></i>
+            <span> Femboi Gang</span>
+        </a>
+        <div class="txt">
+            <p>A Discord server for German and English femboys in Germany, Austria, and Switzerland. For just chatting, posting thigh pics/normal pics, and talking about art, technology, anime, sports, makeup, and music.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer"></div>
+    <footer class="footer-text">
+        <p>Oh look, you cute boy.</p>
+        <i class="bi bi-github"></i>
+        <a href="https://github.com/Femboy-Flix/FemboyFlix-Website" style="color: rgb(255, 255, 255);">GitHub</a><br>
+        <i class="bi bi-shield-check"></i>
+        <a href="/legal/index.html" style="color: rgb(255, 255, 255);">Impressum/Privacy Policy</a>
     </footer>
 
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
