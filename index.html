@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FemboyFlix</title>
+    <link rel="icon" href="/data/favicon.ico" type="image/x-icon">
 
-    <!-- Bootstrap -->
+    <!-- External Sckipts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -61,17 +62,13 @@
             transition: all 0.3s ease;
         }
 
-        .nav-link i {
-            margin-right: 5px;
-        }
-
         .nav-link:hover {
             background-color: white;
             color: black;
         }
 
         .content {
-            color: rgb(255, 255, 255);
+            color: white;
             text-align: center;
             font-size: 1.5rem;
         }
@@ -84,12 +81,27 @@
             max-width: 300px;
         }
 
+        .mas {
+            border: 2px solid rgb(179, 97, 247);
+            display: flex;
+            text-decoration: none; /* Unterstreichung entfernen */
+            color: rgb(255, 255, 255); /* Textfarbe */
+            padding: 5px;
+            border-radius: 8px;
+            align-items: left;
+            text-align: left;
+            width: 85%;
+            margin: 20px auto;
+        }
+
         .link-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
             padding: 20px;
+            
+            
         }
 
         .link-item {
@@ -97,12 +109,13 @@
             max-width: 150px;
             text-align: center;
             background-color: var(--menu-bg);
-            border: 1px solid #ddd;
+            border: 1px solid rgb(179, 97, 247);
             border-radius: 8px;
             padding: 15px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             color: #ffffff;
             text-decoration: none;
+
         }
 
         .link-item img {
@@ -142,8 +155,8 @@
         }
 
         .gradient-box img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
             border-radius: 50%;
             margin-right: 20px;
@@ -180,7 +193,7 @@
         .footer::before {
             content: '';
             width: 90%;
-            border-top: 2px solid #fff;
+            border-top: 2px solid rgb(179, 97, 247);
             display: block;
         }
         .footer-text {
@@ -194,8 +207,27 @@
 </head>
 
 <body>
-    <!-- Banner -->
-    <div class="banner">
+    <!-- Cookie Modal -->
+    <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cookieModalLabel">Cookie Settings</h5>
+                </div>
+                <div class="modal-body">
+                    We use cookies to track if this window has been shown. We only use essential cookies.
+                    For more information, please visit our <a href="/legal/index.html" target="_blank">Privacy Policy</a>.
+                </div>
+                <div class="modal-footer">
+                    <button id="acceptCookies" class="btn btn-primary">Accept</button>
+                    <button id="declineCookies" class="btn btn-secondary">Dismiss</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content -->
+     <!-- Banner -->
+     <div class="banner">
         <nav style="position: absolute; top: 10px; right: 20px;">
             <a href="/links/index.html" class="nav-link">
                 <i class="fa-solid fa-shirt"></i>
@@ -212,10 +244,9 @@
         </nav>
         <div class="content">
             <h1 class="display-4" style="font-size: 85px;">Welcome</h1>
-            <p class="lead">Oh look, such a cute boy!</p>
+            <p class="lead">Hello UwU </p>
         </div>
     </div>
-
     <!-- Links -->
     <div class="link-list">
         <a href="https://x.com/FemboyFlix" class="link-item" target="_blank">
@@ -238,12 +269,19 @@
             <img src="./data/reddit.png" alt="Reddit">
             <i class="bi bi-reddit"></i><span> Reddit </span>
         </a>
+        <a href="https://github.com/Femboy-Flix" class="link-item" target="_blank">
+            <img src="./data/github.png" alt="GitHub">
+            <i class="bi bi-github"></i><span> GitHub </span>
+        </a>
         <a href="https://www.amazon.de/registries/gl/guest-view/6ABJJX18SH21" class="link-item" target="_blank">
             <img src="./data/amazon.png" alt="Amazon Wishlist">
             <i class="bi bi-amazon"></i><span> Wishlist </span>
         </a>
     </div>
-
+    <div class="mas" >
+        <p>Hey am 23.2.2025 ist Bundestagswahl wenn du in Deutschland wählen darft bitte geh wälen. Mehr informationen zur Bundestagswahl <a href="https://www.bundestag.de/wahl" style="text-decoration: none; color: rgb(179, 97, 247);" target="_blank">hier </a></p>
+        
+    </div>
     <!-- About Me -->
     <div class="gradient-box">
         <img src="./data/abme.png" alt="Profile Picture">
@@ -252,7 +290,7 @@
             <p>Hello, it's me, just a cute boy on my way through life. I try to have fun making videos. I want to try to make the femboy community even bigger UwU. I hope my videos make your day  better.</p>
         </div>
     </div>
-
+    
     <div class="content">
         <h1>Supported Discord Servers</h1>
     </div>
@@ -267,17 +305,49 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer"></div>
-    <footer class="footer-text">
-        <p>Oh look, you cute boy.</p>
-        <i class="bi bi-github"></i>
-        <a href="https://github.com/Femboy-Flix/FemboyFlix-Website" style="color: rgb(255, 255, 255);">GitHub</a><br>
-        <i class="bi bi-shield-check"></i>
-        <a href="/legal/index.html" style="color: rgb(255, 255, 255);">Impressum/Privacy Policy</a>
-    </footer>
-
-    <!-- Bootstrap JS -->
+     <!-- Cookies Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cookieModal = new bootstrap.Modal(document.getElementById('cookieModal'));
+        
+            if (!localStorage.getItem('cookiesAccepted')) {
+            cookieModal.show();
+            }
+
+            document.getElementById('acceptCookies').addEventListener('click', function () {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieModal.hide();
+            });
+
+            document.getElementById('declineCookies').addEventListener('click', function () {
+                // Remove any stored data
+                localStorage.removeItem('cookiesAccepted');
+                sessionStorage.clear();
+                document.cookie.split(";").forEach(function (cookie) {
+                    document.cookie = cookie.split("=")[0] + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+                });
+
+                // Optional: Redirect or disable certain functionalities
+                alert('Cookies abgelehnt. Daten werden nicht gespeichert.');
+                cookieModal.hide();
+            });
+
+        });
+    </script>
+        
+
+    </script>
+      <!-- Footer -->
+      <div class="footer"></div>
+      <footer class="footer-text">
+          <p>Oh look, you cute boy.</p>
+          <i class="bi bi-github"></i>
+          <a href="https://github.com/Femboy-Flix/FemboyFlix-Website" style="color: rgb(179, 97, 247);">GitHub</a><br>
+          <i class="bi bi-shield-check"></i>
+          <a href="/legal/index.html" style="color: rgb(179, 97, 247);">Impressum/Privacy Policy</a>
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

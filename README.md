@@ -1,12 +1,17 @@
 # FemboyFlix Website #
-The repository for my website
 
-**How the site works**
+Welcome to the repository for my website! I think it's interesting to share the code with you.
 
-The links are **affiliate** links from the Amazon Partner Network.
+## What the Site Does ##
+
+The website includes links that are **affiliate** links from the Amazon Partner Network.
 
 If you buy something through these links, you won’t pay anything extra. ^^
 
-# Community #
+## Coming Features ##
 
-The community page is under development and will be coming soon. At the moment, I’m learning how to build websites, so it might take some time. My idea is a page where femboys can upload and review clothing they’ve bought.
+- **Community Page**: A new tab will be added next to Blog Outfit and Social Media.
+  - The community can share stylish clothing or clothing links, providing inspiration and ideas.
+
+At the moment, I am learning to code the backend. I’ve made some progress, but it might take a little time to complete. Thank you for your patience!
+
