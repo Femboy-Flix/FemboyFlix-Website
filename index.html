@@ -15,11 +15,8 @@
     <style>
         body {
             background-color: #000;
-            margin: 0;
-            padding: 0;
             width: 100%;
             height: 100%;
-            overflow-x: hidden;
         }
 
         .banner {
@@ -41,31 +38,37 @@
             z-index: 1;
         }
 
-        nav {
-            position: absolute;
-            top: 10px;
-            right: 0;
-            display: flex;
-            gap: 2px;
+        .nav-link {
+            display: inline-flex; /* Icon und Text nebeneinander */
+            align-items: center; /* Vertikal zentriert */
+            color: white; /* Textfarbe */
+            font-size: 15px; /* Schriftgröße */
+            margin-right: 5px; /* Abstand zwischen den Buttons */
+            padding: 5px 5px; /* Innenabstand */
+            border: 2px solid white; /* Weiße Umrahmung */
+            border-radius: 5px; /* Runde Ecken */
+            text-decoration: none; /* Unterstreichung entfernen */
+            transition: all 0.3s ease; /* Animation für Hover */
         }
 
-        .nav-link {
-            display: inline-flex;
-            align-items: center;
-            color: white;
-            font-size: 15px;
-            margin-right: 5px;
-            padding: 5px 5px;
-            border: 2px solid white;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: all 0.3s ease;
+        .logo {
+            position: absolute;
+            display: flex;
+            top: 2px; /* Ganz oben */
+            left: 2px; /* Optional: ganz links */
+            width: 6.5%;
+            height: 6.5%;
+        }
+
+        .nav-link i {
+            margin-right: 5px; /* Abstand zwischen Icon und Text */
         }
 
         .nav-link:hover {
-            background-color: white;
-            color: black;
+            background-color: white; /* Hintergrundfarbe bei Hover */
+            color: black; /* Textfarbe bei Hover */
         }
+
 
         .content {
             color: white;
@@ -130,22 +133,11 @@
             background-color: var(--button-hover);
         }
 
-        .linkone {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            background-color: var(--button-bg);
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
         .gradient-box {
             background: linear-gradient(45deg, #554df9, #d400ff);
             color: #fff;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
@@ -199,7 +191,7 @@
         .footer-text {
             background-color: #000;
             padding: 10px 0;
-            color: rgb(255, 255, 255);
+            color: rgb(179, 97, 247);
             text-align: center;
             margin: 0;
         }
@@ -229,7 +221,7 @@
      <!-- Banner -->
      <div class="banner">
         <nav style="position: absolute; top: 10px; right: 20px;">
-            <a href="/links/index.html" class="nav-link">
+            <a href="../outfit/index.html" class="nav-link">
                 <i class="fa-solid fa-shirt"></i>
                 Outfit
             </a>
@@ -244,38 +236,44 @@
         </nav>
         <div class="content">
             <h1 class="display-4" style="font-size: 85px;">Welcome</h1>
-            <p class="lead">Hello UwU </p>
+            <p class="lead">I am a little 🎀Femboy🎀 who loves to make videos and try to make your day better🩷</p>
         </div>
     </div>
+
+    <div class="logo">
+        <img src="./data/logo.png" alt="Profile Picture">
+    </div>
+    <!-- yes is updated regularily! -->
+   
+    <!-- yes is updated regularily! -->
+
+
+
     <!-- Links -->
     <div class="link-list">
-        <a href="https://x.com/FemboyFlix" class="link-item" target="_blank">
-            <img src="./data/twitter-icon.png" alt="Twitter">
-            <i class="bi bi-twitter-x"></i><span> Twitter </span>
+        <a href="https://www.tiktok.com/@femboyflix?_t=8rfsXVwgSSl&_r=1" class="link-item" target="_blank">
+            <img src="./data/tiktok-icon.png" alt="TikTok">
+            <i class="bi bi-tiktok"></i><span> TikTok </span>
         </a>
         <a href="https://www.instagram.com/femboyflix/profilecard/?igsh=MWt3a2hwYzhoYTZneQ==" class="link-item" target="_blank">
             <img src="./data/instagram-icon.png" alt="Instagram">
             <i class="bi bi-instagram"></i><span> Instagram </span>
         </a>
-        <a href="https://youtube.com/@femboyflix?si=huBSAKolD-52y35w" class="link-item" target="_blank">
-            <img src="./data/youtube-icon.png" alt="YouTube">
-            <i class="bi bi-youtube"></i><span> YouTube </span>
-        </a>
-        <a href="https://www.tiktok.com/@femboyflix?_t=8rfsXVwgSSl&_r=1" class="link-item" target="_blank">
-            <img src="./data/tiktok-icon.png" alt="TikTok">
-            <i class="bi bi-tiktok"></i><span> TikTok </span>
-        </a>
         <a href="https://www.reddit.com/user/dawid-ER-hard/?" class="link-item" target="_blank">
             <img src="./data/reddit.png" alt="Reddit">
             <i class="bi bi-reddit"></i><span> Reddit </span>
+        </a>
+        <a href="https://www.amazon.de/registries/gl/guest-view/6ABJJX18SH21" class="link-item" target="_blank">
+            <img src="./data/amazon.png" alt="Amazon Wishlist">
+            <i class="bi bi-amazon"></i><span> Wishlist </span>
         </a>
         <a href="https://github.com/Femboy-Flix" class="link-item" target="_blank">
             <img src="./data/github.png" alt="GitHub">
             <i class="bi bi-github"></i><span> GitHub </span>
         </a>
-        <a href="https://www.amazon.de/registries/gl/guest-view/6ABJJX18SH21" class="link-item" target="_blank">
-            <img src="./data/amazon.png" alt="Amazon Wishlist">
-            <i class="bi bi-amazon"></i><span> Wishlist </span>
+        <a href="https://x.com/FemboyFlix" class="link-item" target="_blank">
+            <img src="./data/twitter-icon.png" alt="Twitter">
+            <i class="bi bi-twitter-x"></i><span> Twitter </span>
         </a>
     </div>
     <div class="mas" >
@@ -299,6 +297,14 @@
             <img src="./data/femboi.png" alt="Discord">
             <i class="bi bi-discord"></i>
             <span> Femboi Gang</span>
+        </a>
+        <div class="txt">
+            <p>A Discord server for German and English femboys in Germany, Austria, and Switzerland. For just chatting, posting thigh pics/normal pics, and talking about art, technology, anime, sports, makeup, and music.</p>
+        </div>
+        <a href="https://disboard.org/de/server/1249352705915228233" class="link-item" target="_blank">
+            <img src="./data/furs.png" alt="Discord">
+            <i class="bi bi-discord"></i>
+            <span> 🌸Furs & Femboys🌸</span>
         </a>
         <div class="txt">
             <p>A Discord server for German and English femboys in Germany, Austria, and Switzerland. For just chatting, posting thigh pics/normal pics, and talking about art, technology, anime, sports, makeup, and music.</p>
@@ -344,9 +350,9 @@
       <footer class="footer-text">
           <p>Oh look, you cute boy.</p>
           <i class="bi bi-github"></i>
-          <a href="https://github.com/Femboy-Flix/FemboyFlix-Website" style="color: rgb(179, 97, 247);">GitHub</a><br>
+          <a href="https://github.com/Femboy-Flix/FemboyFlix-Website"style="color: rgb(255, 255, 255);">GitHub</a><br>
           <i class="bi bi-shield-check"></i>
-          <a href="/legal/index.html" style="color: rgb(179, 97, 247);">Impressum/Privacy Policy</a>
+          <a href="/legal/index.html" style="color: rgb(255, 255, 255);">Impressum/Privacy Policy</a>
       </footer>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

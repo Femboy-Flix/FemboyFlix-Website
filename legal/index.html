@@ -68,6 +68,15 @@
             color: black; /* Textfarbe bei Hover */
         }
 
+        .logo {
+            position: absolute;
+            display: flex;
+            top: 2px; /* Ganz oben */
+            left: 2px; /* Optional: ganz links */
+            width: 6.5%;
+            height: 6.5%;
+        }
+
 
         .content {
             color: rgb(255, 255, 255);
@@ -90,13 +99,13 @@
         .footer::before {
             content: '';
             width: 90%;
-            border-top: 2px solid #fff;
+            border-top: 2px solid rgb(179, 97, 247);
             display: block;
         }
         .footer-text {
             background-color: #000;
             padding: 10px 0;
-            color: rgb(255, 255, 255);
+            color: rgb(179, 97, 247);
             text-align: center;
             margin: 0;
         }
@@ -125,7 +134,7 @@
     </div>
     <div class="banner">
         <nav style="position: absolute; top: 10px; right: 20px;">
-            <a href="/links/index.html" class="nav-link">
+            <a href="../outfit/index.html" class="nav-link">
                 <i class="fa-solid fa-shirt"></i>
                 Outfit
             </a>
@@ -139,7 +148,7 @@
             </a>-->
             <a href="/block/index.html" class="nav-link">
                 <i class="bi bi-chat-left-text-fill"></i>
-                Block
+                Blog
             </a>
         </nav>
 
@@ -148,6 +157,10 @@
             <h1 class="display-4"  style="font-size: 50spx;">Imprint/Privacy Police</h1>
             <p style="text-align: center; ">(For more information ask over E-Mail)</p>
         </div>
+    </div>
+
+    <div class="logo">
+        <img src="../data/logo.png" alt="Profile Picture">
     </div>
     <!-- Banner -->
     <!-- Banner -->
