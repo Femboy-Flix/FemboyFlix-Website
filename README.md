@@ -15,3 +15,8 @@ If you buy something through these links, you won’t pay anything extra. ^^
 
 At the moment, I am learning to code the backend. I’ve made some progress, but it might take a little time to complete. Thank you for your patience!
 
+main farben 
+```
+#554df9
+```
+
