@@ -19,4 +19,9 @@ main farben
 ```
 #554df9
 ```
+icons 
+```
+https://fontawesome.com/icons/upload?f=classic&s=solid
+```
+
 
